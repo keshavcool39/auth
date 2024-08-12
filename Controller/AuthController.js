@@ -8,14 +8,14 @@ const signup=async (req, res)=> {
         // console.log(name)
         const user = await UserModel.findOne({ email });
         if (user) {
-            return res.status(409).json({ msg: "user already exist" ,success="false"});
+            return res.status(409).json({ msg: "user already exist" });
         }
         
 
         const hashpassword=await bcrypt.hash(password, 10);
         
         await UserModel.create({name,email,password:hashpassword});
-        res.status(201).json({ msg: "user created successfully" ,success="true" });
+        res.status(201).json({ msg: "user created successfully"  });
     }
 
     catch (e) {
