@@ -51,7 +51,7 @@ const login=async(req,res)=>{
             {expiresIn:'24h'}
         )
         
-        res.status(201).json({msg:"login successfully",jwttoken});
+        res.status(201).json({msg:"login successfully",jwttoken,email,name:user.name});
     }
     catch(e){
         res.status(401).json({e})
